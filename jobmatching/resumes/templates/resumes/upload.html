@@ -1,19 +1,31 @@
 {% extends "resumes/base.html" %}
 {% block content %}
 <main>
-<section class="py-5 text-center container">
-    <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-            <h1 class="fw-light">Upload Resume</h1>
-            <p class="lead text-muted">Upload a resume to start job matching process.</p>
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Upload Resume</h1>
+                <p class="lead text-muted">Upload a resume to start job matching process.</p>
+            </div>
         </div>
+    </section>
+
+    <div class="container" style="width: 80%;">
+        <form method="POST" enctype="multipart/form-data">
+            <label for="formFileLg" class="form-label">
+                <h2>Upload a Resume</h2>
+            </label>
+            <div class="row">
+                <div class="col-mb-3 col-mb-offset-5">
+                    <div class="input-group mb-3">
+                        {% csrf_token %}
+                        <input class="form-control form-control-lg" id="formFileLg" type="file" name="pdfFile"/>
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
     </div>
-</section>
-
-<div class="container">
-
-    <label for="formFileLg" class="form-label">Upload a Resume</label>
-    <input class="form-control form-control-lg" id="formFileLg" type="file" />
-</div>
 </main>
 {% endblock content %}
