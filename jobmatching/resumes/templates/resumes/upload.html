@@ -1,0 +1,19 @@
+{% extends "resumes/base.html" %}
+{% block content %}
+<main>
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Upload Resume</h1>
+            <p class="lead text-muted">Upload a resume to start job matching process.</p>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+
+    <label for="formFileLg" class="form-label">Upload a Resume</label>
+    <input class="form-control form-control-lg" id="formFileLg" type="file" />
+</div>
+</main>
+{% endblock content %}

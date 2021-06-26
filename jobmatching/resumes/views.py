@@ -4,3 +4,6 @@ from django.http import HttpResponse
 
 def index(request):
     return render(request, 'resumes/index.html')
+
+def upload(request):
+    return render(request, 'resumes/upload.html')
