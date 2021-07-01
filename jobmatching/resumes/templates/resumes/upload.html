@@ -19,13 +19,18 @@
                 <div class="col-mb-3 col-mb-offset-5">
                     <div class="input-group mb-3">
                         {% csrf_token %}
-                        <input class="form-control form-control-lg" id="formFileLg" type="file" name="pdfFile"/>
+                        <input class="form-control form-control-lg" id="formFileLg" type="file" name="file"/>
                         <button class="btn btn-primary" type="submit">Submit</button>
                     </div>
                 </div>
             </div>
 
         </form>
+        {% for message in messages %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
     </div>
 </main>
 {% endblock content %}
