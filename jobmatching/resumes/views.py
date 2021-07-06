@@ -21,6 +21,7 @@ def upload(request):
         file = request.FILES['file']
         if file.name.endswith('.pdf'):
             handle_pdf_upload(request.FILES['file'], request.user)
+            messages.info(request, 'file uploaded')
         else:
             messages.error(request, 'file format not supported')
     return render(request, 'resumes/upload.html')
