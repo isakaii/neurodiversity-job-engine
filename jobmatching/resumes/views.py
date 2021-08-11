@@ -12,23 +12,41 @@ from pdfminer.pdfpage import PDFPage
 from pdfminer.pdfparser import PDFParser
 from resumes.models import Resume
 
+RECENT_FIELD_OF_WORKS = [
+    "Agriculture, Food & Natural Resources",
+    "Arts, Audio/Video Technology & Communications",
+    "Business Management & Administration",
+    "Education & Training",
+    "Finance",
+    "Government & Public Administration",
+    "Health Science",
+    "Hospitality & Tourism",
+    "Human Services",
+    "Information Technology",
+    "Law, Public Safety, Corrections & Security",
+    "Manufacturing",
+    "Marketing",
+    "Science, Technology, Engineering & Mathematics",
+    "Transportation, Distribution & Logistics",
+
+]
+
 def index(request):
     return render(request, 'resumes/index.html')
 
 @login_required
 def upload(request):
     if request.method == 'POST':
-        file = request.FILES['file']
-        if file.name.endswith('.pdf'):
-            handle_pdf_upload(request.FILES['file'], request.user)
-            messages.info(request, 'file uploaded')
-        else:
-            messages.error(request, 'file format not supported')
-    return render(request, 'resumes/upload.html')
+        insert_resume(request.POST, request.user)
+        messages.info(request, 'Resume uploaded')
+    return render(request, 'resumes/upload.html', {'recent_fields_of_work': RECENT_FIELD_OF_WORKS})
 
-def handle_pdf_upload(file, user):
-    resume = Resume(name = file.name, content = convert_pdf_to_string(file), uploader = user)
-    resume.save()
+def insert_resume(request, user):
+    print(request)
+
+# def handle_pdf_upload(file, user):
+#     resume = Resume(name = file.name, content = convert_pdf_to_string(file), uploader = user)
+#     resume.save()
 
 def convert_pdf_to_string(file):
     output_string = io.StringIO()

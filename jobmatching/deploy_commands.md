@@ -2,3 +2,4 @@ gcloud builds submit --config cloudmigrate.yaml --substitutions _INSTANCE_NAME=j
 
 gcloud run deploy jobmatching-service --platform managed --region us-west2 --image gcr.io/som-ai-neurodiversitymatcher/jobmatching-service --add-cloudsql-instances som-ai-neurodiversitymatcher:us-central1:jobmatching --allow-unauthenticated
 
+gcloud sql connect jobmatching --user ikhe --database jobmatchingDb
