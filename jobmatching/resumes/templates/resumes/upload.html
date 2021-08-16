@@ -53,85 +53,96 @@
             </div>
             
             <div class="form-group row">
+                <p class="text-left">What is your current or most recent field of work? Please check all that apply and specify further if needed.</p>
                 <div class="list-group">
-                    <!-- <select multiple="multiple"  name="recentFieldOfWork" id="recentFieldOfWork" size="15"> -->
-                        {% for field in recent_fields_of_work %}
-                        <label class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="{{field}}">
-                            {{field}}
-                        </label>
-                        {% endfor %}
-                    <!-- </select> -->
+                    {% for field in fields_of_work %}
+                    <label class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="{{field}}" name="recentFieldOfWork">
+                        {{field}}
+                    </label>
+                    {% endfor %}
+                   
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">Other</span>
+                        </div>
+                        <input class="form-control" name="recentFieldOfWorkOther"></textarea>
+                    </div>
                 </div>
             </div>
 
-
-            <!-- <div class="form-group row">
-                <label class="col-md-12">What is your current or most recent field of work? Please check all that apply and specify further if needed.</label>
-                <div class="list-group" name="recentFieldOfWork">
+            <div class="form-group row">
+                <p class="text-left">What is the field of work which you would like to explore/enter? Please check all that apply and specify further if needed.</p>
+                <div class="list-group">
+                    {% for field in fields_of_work %}
                     <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        Agriculture, Food & Natural Resources
+                        <input class="form-check-input me-1" type="checkbox" value="{{field}}" name="fieldsOfWorkToExplore">
+                        {{field}}
                     </label>
-                    <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        Arts, Audio/Video Technology & Communications
-                    </label>
-                    <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        Business Management & Administration
-                    </label>
-                    <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        Education & Training
-                    </label>
-                    <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        Finance
-                    </label>
-                    <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        Government & Public Administration
-                    </label>
-                    <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        Health Sciencerces
-                    </label>
-
-                    <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        Hospitality & Tourism
-                    </label>
-                    <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        Human Services
-                    </label>
-                    <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        Information Technology
-                    </label>
-                    <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        Law, Public Safety, Corrections & Security
-                    </label>
-                    <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        Manufacturing
-                    </label>
-                    <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        Marketing
-                    </label>
-                    <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        Science, Technology, Engineering & Mathematics
-                    </label>
-                    <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        Transportation, Distribution & Logistics
-                    </label>
+                    {% endfor %}
+                   
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">Other</span>
+                        </div>
+                        <input class="form-control" name="fieldsOfWorkToExploreOther"></textarea>
+                    </div>
                 </div>
-            </div> -->
+            </div>
+
+            <div class="form-group row">
+                <p class="text-left">Work Experience</p>
+                <div class="list-group" id="work_experience_form">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Job Title</span>
+                        </div>
+                        <input class="form-control" name="workExperience"></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Company</span>
+                        </div>
+                        <input class="form-control" name="workExperience"></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Location</span>
+                        </div>
+                        <input class="form-control" name="workExperience"></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Job type</span>
+                        </div>
+                        {% for job_type in job_types %}
+                        <label class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="{{job_type}}" name="workExperience">
+                            {{job_type}}
+                        </label>
+                        {% endfor %}
+                    </div>
+                    <div class="input-group mb-3">
+                        <p class="text-left">Time Period</p>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">From</span>
+                        </div>
+                        <input class="form-control" name="workExperience"></textarea>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">To</span>
+                        </div>
+                        <input class="form-control" name="workExperience" value="Present"></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Description</span>
+                        </div>
+                        <input class="form-control" name="workExperience"></textarea>
+                    </div>
+                </div>
+                <input type="button" value="Add Another Work Experience" id="add_work_experience">
+            </div>
+
             <div class="form-group row">
                 <!-- 
                     <input class="form-control form-control-lg" id="formFileLg" type="file" name="file"/>
@@ -150,3 +161,11 @@
     </div>
 </main>
 {% endblock content %}
+
+<script type='text/javascript'>
+    // $('#add_work_experience').click(function() {
+    //     var form_idx = $("#work_experience_form").find("li").length - 1;
+    //     $('#work_experience_form').append($('#work_experience_form').html().replace(/__prefix__/g, form_idx));
+    //     $('#id_form-TOTAL_FORMS').val(parseInt(form_idx) + 1);
+    // });
+</script>

@@ -12,7 +12,7 @@ from pdfminer.pdfpage import PDFPage
 from pdfminer.pdfparser import PDFParser
 from resumes.models import Resume
 
-RECENT_FIELD_OF_WORKS = [
+FIELDS_OF_WORK = [
     "Agriculture, Food & Natural Resources",
     "Arts, Audio/Video Technology & Communications",
     "Business Management & Administration",
@@ -28,7 +28,15 @@ RECENT_FIELD_OF_WORKS = [
     "Marketing",
     "Science, Technology, Engineering & Mathematics",
     "Transportation, Distribution & Logistics",
+]
 
+JOB_TYPES = [
+    "Full time",
+    "Part time",
+    "Contract",
+    "Temporary",
+    "Internshi",
+    "Commissio",
 ]
 
 def index(request):
@@ -39,7 +47,7 @@ def upload(request):
     if request.method == 'POST':
         insert_resume(request.POST, request.user)
         messages.info(request, 'Resume uploaded')
-    return render(request, 'resumes/upload.html', {'recent_fields_of_work': RECENT_FIELD_OF_WORKS})
+    return render(request, 'resumes/upload.html', {'fields_of_work': FIELDS_OF_WORK, "job_types": JOB_TYPES})
 
 def insert_resume(request, user):
     print(request)
