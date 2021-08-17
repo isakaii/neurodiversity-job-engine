@@ -30,15 +30,6 @@ FIELDS_OF_WORK = [
     "Transportation, Distribution & Logistics",
 ]
 
-JOB_TYPES = [
-    "Full time",
-    "Part time",
-    "Contract",
-    "Temporary",
-    "Internshi",
-    "Commissio",
-]
-
 def index(request):
     return render(request, 'resumes/index.html')
 
@@ -47,7 +38,7 @@ def upload(request):
     if request.method == 'POST':
         insert_resume(request.POST, request.user)
         messages.info(request, 'Resume uploaded')
-    return render(request, 'resumes/upload.html', {'fields_of_work': FIELDS_OF_WORK, "job_types": JOB_TYPES})
+    return render(request, 'resumes/upload.html', {'fields_of_work': FIELDS_OF_WORK})
 
 def insert_resume(request, user):
     print(request)

@@ -93,54 +93,17 @@
             <div class="form-group row">
                 <p class="text-left">Work Experience</p>
                 <div class="list-group" id="work_experience_form">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Job Title</span>
-                        </div>
-                        <input class="form-control" name="workExperience"></textarea>
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Company</span>
-                        </div>
-                        <input class="form-control" name="workExperience"></textarea>
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Location</span>
-                        </div>
-                        <input class="form-control" name="workExperience"></textarea>
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Job type</span>
-                        </div>
-                        {% for job_type in job_types %}
-                        <label class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="{{job_type}}" name="workExperience">
-                            {{job_type}}
-                        </label>
-                        {% endfor %}
-                    </div>
-                    <div class="input-group mb-3">
-                        <p class="text-left">Time Period</p>
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">From</span>
-                        </div>
-                        <input class="form-control" name="workExperience"></textarea>
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">To</span>
-                        </div>
-                        <input class="form-control" name="workExperience" value="Present"></textarea>
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Description</span>
-                        </div>
-                        <input class="form-control" name="workExperience"></textarea>
-                    </div>
                 </div>
-                <input type="button" value="Add Another Work Experience" id="add_work_experience">
+                <input type="button" value="Add Another Work Experience" id="add_work_experience" onclick="add_work_experience_func(event);">
+                <input type="button" value="Remove Work Experience" id="remove_work_experience" onclick="remove_work_experience_func(event);">
+            </div>
+
+            <div class="form-group row">
+                <p class="text-left">Eduction</p>
+                <div class="list-group" id="eduction_form">
+                </div>
+                <input type="button" value="Add Another Eduction Background" id="add_eduction" onclick="add_eduction_func(event);">
+                <input type="button" value="Remove Eduction Background" id="remove_eduction" onclick="remove_eduction_func(event);">
             </div>
 
             <div class="form-group row">
@@ -161,11 +124,3 @@
     </div>
 </main>
 {% endblock content %}
-
-<script type='text/javascript'>
-    // $('#add_work_experience').click(function() {
-    //     var form_idx = $("#work_experience_form").find("li").length - 1;
-    //     $('#work_experience_form').append($('#work_experience_form').html().replace(/__prefix__/g, form_idx));
-    //     $('#id_form-TOTAL_FORMS').val(parseInt(form_idx) + 1);
-    // });
-</script>
