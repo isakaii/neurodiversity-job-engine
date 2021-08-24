@@ -4,47 +4,45 @@
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Upload Resume</h1>
-                <p class="lead text-muted">Upload a resume to start job matching process.</p>
+                <h1 class="fw-light">Input Resume</h1>
+                <p class="lead text-muted">Input your resume to start job matching process.</p>
             </div>
         </div>
     </section>
 
-    <div class="container">
+    <div class="container-md">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <div class="form-group row">
-                <label for="formFileLg" class="form-label">
-                    <h2>Input your resume</h2>
-                </label>
-            </div>
-            <div class="form-group row">
-                <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <div class="input-group">
                 <div class="col-sm-10">
-                    <input class="form-control" id="nameInput" name="name" placeholder="First Last" />
+                    <label for="name" class="col-sm-2 col-form-label">Name</label>
+                    <input class="form-control" id="nameInput" name="name" placeholder="First Name" />
+                    <input class="form-control" id="nameInput" name="name" placeholder="Last Name" />
                 </div>
-            </div>
-            <div class="form-group row">
+              </div>
+
+            <div class="form-group">
                 <label class="col-sm-2 col-form-label">Headline</label>
                 <div class="col-sm-10">
                     <input class="form-control" id="headlineInput" name="headline" placeholder="Headline" />
                 </div>
             </div>
-            <div class="form-group row">
+
+            <div class="form-group">
                 <label class="col-sm-2 col-form-label">Summary</label>
                 <div class="col-lg">
                     <textarea class="form-control" id="summaryInput" name="headline" placeholder="Summary" rows="3"></textarea>
                 </div>
 
             </div>
-            <div class="form-group row">
+            <div class="form-group">
                 <label class="col-sm-2 col-form-label">Location</label>
                 <div class="col-lg">
                     <input class="form-control" id="locationInput" name="location" placeholder="Street, City, State, Zip"></textarea>
                 </div>
 
             </div>
-            <div class="form-group row">
+            <div class="form-group">
                 <label class="col-sm-2 col-form-label">Links</label>
                 <div class="col-lg">
                     <textarea class="form-control" id="linksInput" name="links" placeholder="Links" rows="3"></textarea>
@@ -52,7 +50,7 @@
 
             </div>
             
-            <div class="form-group row">
+            <div class="form-group">
                 <p class="text-left">What is your current or most recent field of work? Please check all that apply and specify further if needed.</p>
                 <div class="list-group">
                     {% for field in fields_of_work %}
@@ -71,7 +69,7 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group">
                 <p class="text-left">What is the field of work which you would like to explore/enter? Please check all that apply and specify further if needed.</p>
                 <div class="list-group">
                     {% for field in fields_of_work %}
@@ -90,7 +88,7 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group">
                 <p class="text-left">Work Experience</p>
                 <div class="list-group" id="work_experience_form">
                 </div>
@@ -98,7 +96,7 @@
                 <input type="button" value="Remove Work Experience" id="remove_work_experience" onclick="remove_work_experience_func(event);">
             </div>
 
-            <div class="form-group row">
+            <div class="form-group">
                 <p class="text-left">Eduction</p>
                 <div class="list-group" id="eduction_form">
                 </div>
@@ -106,7 +104,7 @@
                 <input type="button" value="Remove Eduction Background" id="remove_eduction" onclick="remove_eduction_func(event);">
             </div>
 
-            <div class="form-group row">
+            <div class="form-group">
                 <p class="text-left">Skills</p>
                 <div class="list-group" id="skills_form">
                 </div>
@@ -114,7 +112,7 @@
                 <input type="button" value="Remove Skill" id="remove_skills" onclick="remove_skills_func(event);">
             </div>
 
-            <div class="form-group row">
+            <div class="form-group">
                 <p class="text-left">Languages</p>
                 <div class="list-group" id="languages_form">
                 </div>
@@ -122,7 +120,7 @@
                 <input type="button" value="Remove Language" id="remove_languages" onclick="remove_languages_func(event);">
             </div>
 
-            <div class="form-group row">
+            <div class="form-group">
                 <p class="text-left">Certifications</p>
                 <div class="list-group" id="certifications_form">
                 </div>
@@ -130,7 +128,7 @@
                 <input type="button" value="Remove Certification" id="remove_certifications" onclick="remove_certifications_func(event);">
             </div>
 
-            <div class="form-group row">
+            <div class="form-group">
                 <p class="text-left">Awards</p>
                 <div class="list-group" id="awards_form">
                 </div>
@@ -138,7 +136,7 @@
                 <input type="button" value="Remove Award" id="remove_award" onclick="remove_awards_func(event);">
             </div>
 
-            <div class="form-group row">
+            <div class="form-group">
                 <p class="text-left">Publications / Patents</p>
                 <div class="list-group" id="publications_form">
                 </div>
@@ -146,14 +144,14 @@
                 <input type="button" value="Remove Publication" id="remove_publications" onclick="remove_publications_func(event);">
             </div>
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Additional Information</span>
+            <div class="form-group">
+                <label class="col-sm-2 col-form-label">Additional Info</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="additionalInfo" name="additional_info" placeholder="Headline" />
                 </div>
-                <input class="form-control" name="additional_info"></textarea>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group">
                 <!-- 
                     <input class="form-control form-control-lg" id="formFileLg" type="file" name="file"/>
                 -->
