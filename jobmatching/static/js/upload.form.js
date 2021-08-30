@@ -16,6 +16,26 @@ RADIO_CHECK_BOX = `
 </div>
 `
 
+TIME_RANGE_PICKER = `
+<div class="row">
+    <label for="name" class="col-sm-2 col-form-label">Time Period</label>
+</div>
+<div class="row">
+    <div class="col-1">
+        <span class="input-group-addon">From</span>
+    </div>
+    <div class="col-4">
+        <input type="text" class="input-sm form-control datepicker" name="{0}" />
+    </div>
+    <div class="col-1" style="text-align: center">
+        <span class="input-group-addon">To</span>
+    </div>
+    <div class="col-4">
+        <input type="text" class="input-sm form-control datepicker" name="{0}" value="Present" />
+    </div>
+</div>
+`
+
 
 var work_experiences = 1;
 var eductions = 1;
@@ -36,6 +56,14 @@ String.prototype.format = function() {
     return a 
 }
 
+$(document).on('focus',".datepicker", function(){
+    $(this).datepicker({
+        autoclose: true,
+        format: "mm/yyyy",
+        minViewMode: 1,
+    });
+});
+
 function add_work_experience_func(e) {
     e.preventDefault();
 
@@ -44,46 +72,37 @@ function add_work_experience_func(e) {
 
     var doc = parser.parseFromString(
         `
-        <div class="container-md">
-            <p class="text-left">Work Experience ${work_experiences}</p>
-            ${SINGLE_TEXT_INPUT_GROUP.format("Job Title", form_name)}
-            ${SINGLE_TEXT_INPUT_GROUP.format("Company", form_name)}
-            ${SINGLE_TEXT_INPUT_GROUP.format("Location", form_name)}
-            
-            <div class="row">
-                <label class="col-sm-2 col-form-label">Job Type</label>
-            </div>
-            <div class="row">
-                <div class="col">
-                    ${RADIO_CHECK_BOX.format(form_name, "Full time", "_jobtype1")}
-                    ${RADIO_CHECK_BOX.format(form_name, "Part time", "_jobtype2")}
-                    ${RADIO_CHECK_BOX.format(form_name, "Contract", "_jobtype3")}
-                    ${RADIO_CHECK_BOX.format(form_name, "Temporary", "_jobtype4")}
-                    ${RADIO_CHECK_BOX.format(form_name, "Internship", "_jobtype5")}
-                    ${RADIO_CHECK_BOX.format(form_name, "Commission", "_jobtype6")}
-                    ${RADIO_CHECK_BOX.format(form_name, "Pre-employment Training", "_jobtype7")}
-                </div>
-            </div>
+        <div class="row no-gutters">
+            <div class="card">
+                <div class="card-subtitle mb-2 text-muted">Work Experience ${work_experiences}</div>
+                <div class="card-body">
+                    ${SINGLE_TEXT_INPUT_GROUP.format("Job Title", form_name)}
+                    ${SINGLE_TEXT_INPUT_GROUP.format("Company", form_name)}
+                    ${SINGLE_TEXT_INPUT_GROUP.format("Location", form_name)}
+                    
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Job Type</label>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            ${RADIO_CHECK_BOX.format(form_name, "Full time", "_jobtype1")}
+                            ${RADIO_CHECK_BOX.format(form_name, "Part time", "_jobtype2")}
+                            ${RADIO_CHECK_BOX.format(form_name, "Contract", "_jobtype3")}
+                            ${RADIO_CHECK_BOX.format(form_name, "Temporary", "_jobtype4")}
+                            ${RADIO_CHECK_BOX.format(form_name, "Internship", "_jobtype5")}
+                            ${RADIO_CHECK_BOX.format(form_name, "Commission", "_jobtype6")}
+                            ${RADIO_CHECK_BOX.format(form_name, "Pre-employment Training", "_jobtype7")}
+                        </div>
+                    </div>
 
-            <div class="row">
-                <label for="name" class="col-sm-2 col-form-label">Time Period</label>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">From</span>
-                    </div>
-                    <input class="form-control" name="${form_name}"></textarea>
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">To</span>
-                    </div>
-                    <input class="form-control" name="${form_name}" value="Present"></textarea>
+                    ${TIME_RANGE_PICKER.format(form_name)}
+                    ${SINGLE_TEXT_INPUT_GROUP.format("Description", form_name)}
                 </div>
             </div>
-            ${SINGLE_TEXT_INPUT_GROUP.format("Description", form_name)}
         </div>
         `, "text/html"
     );
+
     work_experience_form.append(doc.body);
     work_experiences++;
 }
