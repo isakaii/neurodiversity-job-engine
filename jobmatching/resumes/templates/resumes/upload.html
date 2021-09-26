@@ -1,12 +1,10 @@
 {% extends "resumes/base.html" %}
 {% block content %}
 <main>
-    <section class="py-5 text-center container">
-        <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Input Resume</h1>
-                <p class="lead text-muted">Input your resume to start job matching process.</p>
-            </div>
+    <section class="py-3 text-center container">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Input Resume</h1>
+            <p class="lead text-muted">Input your resume to start job matching process.</p>
         </div>
     </section>
 
@@ -202,13 +200,16 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <!-- 
-                    <input class="form-control form-control-lg" id="formFileLg" type="file" name="file"/>
-                -->
-                <div>
-                    <button class="btn btn-primary" type="submit">Submit</button>
+            <div class="form-group" style="padding-top: 30px; padding-bottom: 30px;">
+                <div class="row">
+                    <div class="col-3 d-grid gap-2">
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+                    </div>
+                    <div class="col-3 d-grid gap-2">
+                        <a href="/" class="btn btn-danger btn-lg btn-block">Cancel</a>
+                    </div>
                 </div>
+
             </div>
 
         </form>

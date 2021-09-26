@@ -2,62 +2,123 @@
 {% load static %}
 {% block content %}
 <main>
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-        <div class="col-md-7 p-lg-7 mx-auto my-5">
-          <h1 class="display-5 fw-normal">AI-driven Neurodiversity Job Matcher</h1>
-          <p class="text-start lead fw-normal">The AI-driven Neurodiversity Job Matcher seeks to automate the job seeker-job 
-            position matching process for the Stanford Neurodiversity Project's Neurodiversity at Work clinical 
-            trial. The Natural Language Processing (NLU) based matching algorithm aims to generate optimal matches 
-            for all job seekers and positions to maximize the potential of neurodiverse individuals by matching 
-            them with job positions based on their overall strengths and experiences.</p>
-          <a class="btn btn-outline-secondary" href="resumes/upload">Get Started</a>
-        </div>
-        <div class="product-device shadow-sm d-none d-md-block"></div>
-        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+    <div class="col-md-7 p-lg-7 mx-auto my-5">
+      <h1 class="display-5 fw-normal">AI-driven Neurodiversity Job Matcher</h1>
+      <p class="text-start lead fw-normal">The AI-driven Neurodiversity Job Matcher seeks to automate the job seeker-job
+        position matching process for the Stanford Neurodiversity Project's Neurodiversity at Work clinical
+        trial. The Natural Language Processing (NLU) based matching algorithm aims to generate optimal matches
+        for all job seekers and positions to maximize the potential of neurodiverse individuals by matching
+        them with job positions based on their overall strengths and experiences.</p>
+      {% if user.is_authenticated %}
+      <a href="resumes/upload" class="btn btn-success btn-lg btn-block">Get Started</a>
+      {% else %}
+      <a href="login" class="btn btn-success btn-lg btn-block">Get Started</a>
+      {% endif %}
+    </div>
+    <div class="product-device shadow-sm d-none d-md-block"></div>
+    <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
 
-      </div>
+  </div>
 
-      
+
   <div class="container marketing">
     <hr class="featurette-divider">
 
     <div class="row featurette">
       <div class="col-md-7">
         <h2 class="featurette-heading">Begin Your Job Matching Process</h2>
-        <p class="lead">Click on the image to start the job matching process. Our AI engine will analyze 
-            your resume to determine your strengths, challenges, and accomodations, matching you with 
-            job positions based on your fit with the required and preferred qualifications. After processing 
-            your resume, our engine will show you ways you can improve your resume to increase your match 
-            percentages with your ideal jobs.</p>
+        <p class="lead">Click on the image to start the job matching process. Our AI engine will analyze
+          your resume to determine your strengths, challenges, and accomodations, matching you with
+          job positions based on your fit with the required and preferred qualifications. After processing
+          your resume, our engine will show you ways you can improve your resume to increase your match
+          percentages with your ideal jobs.</p>
       </div>
       <div class="col-md-5">
         {% if user.is_authenticated %}
         <a href="resumes/upload">
-            <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Resume Processing</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                    dy=".3em">Resume Processing</text>
-            </svg> -->
-            <img src="{% static 'img/resume_upload.png' %}" width="300" height="300" class="d-block mx-auto">
+          <img src="{% static 'img/resume_upload.png' %}" width="300" height="300" class="d-block mx-auto">
         </a>
         {% else %}
         <a href="login">
-            <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Resume Processing</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                    dy=".3em">Resume Processing</text>
-            </svg> -->
-
-            <img src="{% static 'img/resume_upload.png' %}" width="300" height="300" class="d-block mx-auto">
+          <img src="{% static 'img/resume_upload.png' %}" width="300" height="300" class="d-block mx-auto">
         </a>
         {% endif %}
       </div>
     </div>
-    </div>
+  </div>
 
 </main>
+
+<footer class="textarea">
+  <div class="container marketing" style="margin-bottom: 50px;">
+    <hr class="featurette-divider">
+    <div class="row justify-content-md-center">
+      <h2 class="featurette-heading">Tech Stack</h2>
+      <div class="col-md-8">
+        <img src="{% static 'img/tech_stack.png' %}" class="d-block mx-auto">
+      </div>
+    </div>
+  </div>
+  <div class="container marketing" style="margin-bottom: 50px;">
+    <hr class="featurette-divider">
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="featurette-heading">About This Project</h2>
+        <p class="lead font-weight-normal">The AI-driven Neurodiversity Job Matcher seeks to compare job
+          descriptions with O*NET,
+          a national database of occupational information, and use cross-comparison methods to extract
+          competency match percentages between a job's required and preferred qualifications and the
+          candidate's experience. CareerOneStop's Competency Model from the U.S. Department of Labor,
+          Employment and Training Administration is used as a basis for classification and/or keyword
+          extraction.
+          <br /><br />
+          Through an integration with a database of job descriptions and resumes from Google Cloud's NLU
+          platform, this project uses entity resolution to determine match percentages between job
+          descriptions
+          and candidates. Entity resolution allows the job matching engine to recognize when a candidate’s
+          work
+          experience and a job requirement were referring to the same real-world entities.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <img src="{% static 'img/about_us.png' %}" width="550" height="550" class="d-block mx-auto">
+      </div>
+    </div>
+  </div>
+  <div class="container marketing">
+    <hr class="featurette-divider">
+    <div class="row">
+      <div class="col-md">
+        <h2 class="featurette-heading">About The Team</h2>
+        <p class="lead font-weight-normal">Isabella He (ihe@stanford.edu) is a senior at Mission San Jose
+          High School in Fremont,
+          CA, and is the developer
+          of the AI-driven Neurodiversity Job Matcher. She initiated the project with Dr. Fung to automate
+          the
+          job
+          matching process of Neurodiversity at Work. Additionally, within the Stanford Neurodiversity
+          Project
+          (SNP),
+          she serves as the chair of the Network for K-12 Neurodiversity Education and Advocacy (NNEA),
+          coordinator
+          for SNP's neurodiversity camp for high schoolers — SNP REACH — and the Stanford Neurodiversity
+          Summit.
+          Outside of neurodiversity advocacy, she is a wrestler, pianist, and an editor for her school
+          journalism team.
+          <br /><br />
+          Lawrence Fung, M.D., Ph.D. (lkfung@stanford.edu) is the Director of the Stanford Neurodiversity
+          Project. Dr. Fung specializes
+          in the phenomenology, neurobiology and novel interventions of autism spectrum condition. He
+          serves
+          as
+          Director of the Adult Neurodevelopment Clinic, and Assistant Professor (Medical Center Line) in
+          the
+          Department of Psychiatry & Behavioral Sciences. He is also the father of a teenager on the
+          spectrum.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
 {% endblock content %}

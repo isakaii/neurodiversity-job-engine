@@ -38,8 +38,6 @@
             }
         }
     </style>
-
-
 </head>
 
 <body>
@@ -47,7 +45,7 @@
         <div class="navbar navbar-dark bg-stanfordred shadow-sm">
             <div class="container">
                 <div class="col-10">
-                    <a href="#" class="navbar-brand d-flex align-items-center">
+                    <a href="/" class="navbar-brand d-flex align-items-center">
                         <img src="{% static 'img/stanford_logo.png' %}" width="30" height="30" class="img-fluid"
                             style="padding-right: 10px;">
                         <strong>AI-driven Neurodiversity Job Matcher</strong>
@@ -65,72 +63,9 @@
             </div>
         </div>
     </header>
+
     {% block content %}{% endblock %}
-    </div>
+
 </body>
 
-<footer class="textarea">
-    <div class="container marketing" style="margin-bottom: 50px;">
-        <hr class="featurette-divider">
-        <div class="row justify-content-md-center">
-            <h2 class="featurette-heading">Tech Stack</h2>
-            <div class="col-md-8">
-                <img src="{% static 'img/tech_stack.png' %}" class="d-block mx-auto">
-            </div>
-        </div>
-    </div>
-    <div class="container marketing" style="margin-bottom: 50px;">
-        <hr class="featurette-divider">
-        <div class="row">
-            <div class="col-md-6">
-                <h2 class="featurette-heading">About This Project</h2>
-                <p class="lead font-weight-normal">The AI-driven Neurodiversity Job Matcher seeks to compare job descriptions with O*NET,
-                    a national database of occupational information, and use cross-comparison methods to extract
-                    competency match percentages between a job's required and preferred qualifications and the
-                    candidate's experience. CareerOneStop's Competency Model from the U.S. Department of Labor,
-                    Employment and Training Administration is used as a basis for classification and/or keyword
-                    extraction.
-                    <br/><br/>
-                    Through an integration with a database of job descriptions and resumes from Google Cloud's NLU
-                    platform, this project uses entity resolution to determine match percentages between job
-                    descriptions
-                    and candidates. Entity resolution allows the job matching engine to recognize when a candidate’s
-                    work
-                    experience and a job requirement were referring to the same real-world entities.
-                </p>
-            </div>
-            <div class="col-md-6">
-                <img src="{% static 'img/about_us.png' %}" width="550" height="550" class="d-block mx-auto">
-            </div>
-        </div>
-    </div>
-    <div class="container marketing">
-        <hr class="featurette-divider">
-        <div class="row">
-            <div class="col-md">
-                <h2 class="featurette-heading">About The Team</h2>
-                <p class="lead font-weight-normal">Isabella He (ihe@stanford.edu) is a senior at Mission San Jose High School in Fremont,
-                    CA, and is the developer
-                    of the AI-driven Neurodiversity Job Matcher. She initiated the project with Dr. Fung to automate the
-                    job
-                    matching process of Neurodiversity at Work. Additionally, within the Stanford Neurodiversity Project
-                    (SNP),
-                    she serves as the chair of the Network for K-12 Neurodiversity Education and Advocacy (NNEA),
-                    coordinator
-                    for SNP's neurodiversity camp for high schoolers — SNP REACH — and the Stanford Neurodiversity
-                    Summit.
-                    Outside of neurodiversity advocacy, she is a wrestler, pianist, and an editor for her school
-                    journalism team.
-                    <br/><br/>
-                    Lawrence Fung, M.D., Ph.D. (lkfung@stanford.edu) is the Director of the Stanford Neurodiversity
-                    Project. Dr. Fung specializes
-                    in the phenomenology, neurobiology and novel interventions of autism spectrum condition. He serves
-                    as
-                    Director of the Adult Neurodevelopment Clinic, and Assistant Professor (Medical Center Line) in the
-                    Department of Psychiatry & Behavioral Sciences. He is also the father of a teenager on the spectrum.
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
 </html>
