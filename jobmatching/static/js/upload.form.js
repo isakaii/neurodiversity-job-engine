@@ -127,42 +127,37 @@ function add_eduction_func(e) {
             <div class="card">
                 <div class="card-subtitle mb-2 text-muted">Eduction Background ${eductions}</div>
                 <div class="card-body">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Current Enrolled?</span>
-                        </div>
-                        <label class="list-group-item">
+                    <div class="input-group">
+                        <div class="col-sm-10">
+                            <label for="name" class="col-sm-2 col-form-label">Current Enrolled?</label>
+                            <label class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" value="Full time" name="${form_name}">
                             Full time
                             <input class="form-check-input me-1" type="checkbox" value="Part time" name="${form_name}">
                             Part time
                         </label>
+                        </div>
                     </div>
 
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Level of Education </span>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Level of Education</label>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            ${RADIO_CHECK_BOX.format(form_name, "Some high school", "_edulevel1")}
+                            ${RADIO_CHECK_BOX.format(form_name, "High school diploma", "_edulevel2")}
+                            ${RADIO_CHECK_BOX.format(form_name, "High school certificate", "_edulevel3")}
+                            ${RADIO_CHECK_BOX.format(form_name, "Vocational school certificate or diploma", "_edulevel4")}
                         </div>
-                        <label class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="Full time" name="${form_name}">
-                            Some high school
-                            <input class="form-check-input me-1" type="checkbox" value="Part time" name="${form_name}">
-                            High school diploma
-                            <input class="form-check-input me-1" type="checkbox" value="Contract" name="${form_name}">
-                            High school certificate
-                            <input class="form-check-input me-1" type="checkbox" value="Temporary" name="${form_name}">
-                            Vocational school certificate or diploma
-                            <input class="form-check-input me-1" type="checkbox" value="Internshi" name="${form_name}">
-                            Associate's degree
-                            <input class="form-check-input me-1" type="checkbox" value="Commissio" name="${form_name}">
-                            Bachelor's degree
-                            <input class="form-check-input me-1" type="checkbox" value="Commissio" name="${form_name}">
-                            Master's degree
-                            <input class="form-check-input me-1" type="checkbox" value="Commissio" name="${form_name}">
-                            Doctorate/MD
-                        </label>
-                        ${SINGLE_TEXT_INPUT_GROUP.format("Other", form_name)}
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            ${RADIO_CHECK_BOX.format(form_name, "Associate's degree", "_edulevel5")}
+                            ${RADIO_CHECK_BOX.format(form_name, "Bachelor's degree", "_edulevel6")}
+                            ${RADIO_CHECK_BOX.format(form_name, "Master's degree", "_edulevel7")}
+                            ${RADIO_CHECK_BOX.format(form_name, "Doctorate/MD", "_edulevel8")}
+                            ${RADIO_CHECK_BOX.format(form_name, "Other", "_edulevel9")}
+                        </div>
                     </div>
 
                     ${SINGLE_TEXT_INPUT_GROUP.format("Degree", form_name)}
@@ -196,37 +191,27 @@ function add_skills_func(e) {
 
     var doc = parser.parseFromString(
         `
-        <p class="text-left">Skills ${skills}</p>
+        <div class="row no-gutters">
+        <div class="card">
+            <div class="card-subtitle mb-2 text-muted">Skills ${skills}</div>
+            <div class="card-body">
         
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Skill Name</span>
-            </div>
-            <input class="form-control" name="${form_name}"></textarea>
-        </div>
+                ${SINGLE_TEXT_INPUT_GROUP.format("Skill Name", form_name)}
+                ${SINGLE_TEXT_INPUT_GROUP.format("Year of Experience", form_name)}
 
-        
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Years of Experiencce</span>
+                <div class="row">
+                    <label class="col-sm-2 col-form-label">Level of Experience</label>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        ${RADIO_CHECK_BOX.format(form_name, "Beginner", "_explevel1")}
+                        ${RADIO_CHECK_BOX.format(form_name, "Intermediate", "_explevel2")}
+                        ${RADIO_CHECK_BOX.format(form_name, "Proficient", "_explevel3")}
+                        ${RADIO_CHECK_BOX.format(form_name, "Expert", "_explevel4")}
+                    </div>
+                </div>
             </div>
-            <input class="form-control" name="${form_name}"></textarea>
         </div>
-
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Level of experience</span>
-            </div>
-            <label class="list-group-item">
-                <input class="form-check-input me-1" type="checkbox" value="Beginner" name="${form_name}">
-                Beginner
-                <input class="form-check-input me-1" type="checkbox" value="Intermediate" name="${form_name}">
-                Intermediate
-                <input class="form-check-input me-1" type="checkbox" value="Proficient" name="${form_name}">
-                Proficient
-                <input class="form-check-input me-1" type="checkbox" value="Expert" name="${form_name}">
-                Expert
-            </label>
         </div>
         `, "text/html"
     );
@@ -250,29 +235,25 @@ function add_languages_func(e) {
 
     var doc = parser.parseFromString(
         `
-        <p class="text-left">Languages ${languages}</p>
-        
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Language Name</span>
-            </div>
-            <input class="form-control" name="${form_name}"></textarea>
-        </div>
+        <div class="row no-gutters">
+        <div class="card">
+            <div class="card-subtitle mb-2 text-muted">Languages ${languages}</div>
+            <div class="card-body">
+                ${SINGLE_TEXT_INPUT_GROUP.format("Language Name", form_name)}
 
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Level of experience</span>
+                <div class="row">
+                    <label class="col-sm-2 col-form-label">Level of Experience</label>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        ${RADIO_CHECK_BOX.format(form_name, "Beginner", "_languageexplevel1")}
+                        ${RADIO_CHECK_BOX.format(form_name, "Intermediate", "_languageexplevel2")}
+                        ${RADIO_CHECK_BOX.format(form_name, "Proficient", "_languageexplevel3")}
+                        ${RADIO_CHECK_BOX.format(form_name, "Expert", "_languageexplevel4")}
+                    </div>
+                </div>
             </div>
-            <label class="list-group-item">
-                <input class="form-check-input me-1" type="checkbox" value="Beginner" name="${form_name}">
-                Beginner
-                <input class="form-check-input me-1" type="checkbox" value="Intermediate" name="${form_name}">
-                Intermediate
-                <input class="form-check-input me-1" type="checkbox" value="Proficient" name="${form_name}">
-                Proficient
-                <input class="form-check-input me-1" type="checkbox" value="Expert" name="${form_name}">
-                Expert
-            </label>
+        </div>
         </div>
         `, "text/html"
     );
@@ -296,35 +277,16 @@ function add_certifications_func(e) {
 
     var doc = parser.parseFromString(
         `
-        <p class="text-left">Certifications ${certifications}</p>
-        
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Title</span>
+        <div class="row no-gutters">
+        <div class="card">
+            <div class="card-subtitle mb-2 text-muted">Certifications ${certifications}</div>
+            <div class="card-body">
+                ${SINGLE_TEXT_INPUT_GROUP.format("Title", form_name)}
+                ${TIME_RANGE_PICKER.format(form_name)}
+                ${SINGLE_TEXT_INPUT_GROUP.format("Description", form_name)}
             </div>
-            <input class="form-control" name="${form_name}"></textarea>
         </div>
-
-        
-        <div class="input-group mb-3">
-            <p class="text-left">Time Period</p>
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">From</span>
-            </div>
-            <input class="form-control" name="${form_name}"></textarea>
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">To</span>
-            </div>
-            <input class="form-control" name="${form_name}" value="Present"></textarea>
         </div>
-
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Description</span>
-            </div>
-            <input class="form-control" name="${form_name}"></textarea>
-        </div>
-
         `, "text/html"
     );
     certifications_form.append(doc.body);
@@ -347,30 +309,16 @@ function add_awards_func(e) {
 
     var doc = parser.parseFromString(
         `
-        <p class="text-left">Awards ${certifications}</p>
-        
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Title</span>
+        <div class="row no-gutters">
+        <div class="card">
+            <div class="card-subtitle mb-2 text-muted">Awards ${awards}</div>
+            <div class="card-body">
+                ${SINGLE_TEXT_INPUT_GROUP.format("Title", form_name)}
+                ${SINGLE_TEXT_INPUT_GROUP.format("Time", form_name)}
+                ${SINGLE_TEXT_INPUT_GROUP.format("Description", form_name)}
             </div>
-            <input class="form-control" name="${form_name}"></textarea>
         </div>
-
-        
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Time</span>
-            </div>
-            <input class="form-control" name="${form_name}"></textarea>
         </div>
-
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Description</span>
-            </div>
-            <input class="form-control" name="${form_name}"></textarea>
-        </div>
-
         `, "text/html"
     );
     awards_form.append(doc.body);
@@ -393,30 +341,16 @@ function add_publications_func(e) {
 
     var doc = parser.parseFromString(
         `
-        <p class="text-left">Publications / Patents ${publicatiions}</p>
-        
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Title</span>
+        <div class="row no-gutters">
+        <div class="card">
+            <div class="card-subtitle mb-2 text-muted">Publications / Patents ${publicatiions}</div>
+            <div class="card-body">
+                ${SINGLE_TEXT_INPUT_GROUP.format("Title", form_name)}
+                ${SINGLE_TEXT_INPUT_GROUP.format("Time", form_name)}
+                ${SINGLE_TEXT_INPUT_GROUP.format("Description", form_name)}
             </div>
-            <input class="form-control" name="${form_name}"></textarea>
         </div>
-
-        
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Time</span>
-            </div>
-            <input class="form-control" name="${form_name}"></textarea>
         </div>
-
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Description</span>
-            </div>
-            <input class="form-control" name="${form_name}"></textarea>
-        </div>
-
         `, "text/html"
     );
     publications_form.append(doc.body);
