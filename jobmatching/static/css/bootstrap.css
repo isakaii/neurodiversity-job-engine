@@ -3000,6 +3000,12 @@ textarea.form-control-lg {
   border-color: #6c757d;
 }
 
+.btn-stanfordgreen {
+  color: #fff;
+  background-color: #006A52;
+  border-color: #006A52;
+}
+
 .btn-success {
   color: #fff;
   background-color: #198754;
@@ -7388,6 +7394,10 @@ textarea.form-control-lg {
 
 .text-reset {
   color: inherit !important;
+}
+
+.bg-stanfordred {
+  background-color: #9D2235 !important;
 }
 
 .bg-primary {

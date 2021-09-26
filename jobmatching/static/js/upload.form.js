@@ -455,7 +455,7 @@ function add_publications_func(e) {
     publicatiions++;
 }
 
-function remove_publicatiions_func(e) {
+function remove_publications_func(e) {
     e.preventDefault();
 
     var publications_form = document.getElementById("publications_form");

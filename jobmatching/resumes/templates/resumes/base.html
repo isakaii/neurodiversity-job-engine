@@ -14,7 +14,7 @@
 
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.standalone.min.css' %}">
 
     <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
@@ -44,58 +44,93 @@
 
 <body>
     <header>
-        <div class="collapse bg-dark" id="navbarHeader">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8 col-md-7 py-4">
-                        <h4 class="text-white">About</h4>
-                        <p class="text-muted">Add some information about the album below, the author, or any other
-                            background context. Make it a few sentences long so folks can pick up some informative
-                            tidbits. Then, link them off to some social networking sites or contact information.</p>
-                    </div>
-                    <div class="col-sm-4 offset-md-1 py-4">
-                        <h4 class="text-white">Contact</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                            <li><a href="#" class="text-white">Like on Facebook</a></li>
-                            <li><a href="#" class="text-white">Email me</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="navbar navbar-dark bg-stanfordred shadow-sm">
             <div class="container">
                 <div class="col-10">
                     <a href="#" class="navbar-brand d-flex align-items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cpu"
-                            viewBox="0 0 20 16">
-                            <path
-                                d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0zm-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3h-7zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
-                        </svg>
-                        <strong>Neuro Diversity</strong>
+                        <img src="{% static 'img/stanford_logo.png' %}" width="30" height="30" class="img-fluid"
+                            style="padding-right: 10px;">
+                        <strong>AI-driven Neurodiversity Job Matcher</strong>
                     </a>
                 </div>
                 {% if user.is_authenticated %}
                 <div class="col-1">
-                    <a href="logout" class="btn btn-success" role="button">Log Out</a>
+                    <a href="logout" class="btn btn-stanfordgreen" role="button">Log Out</a>
                 </div>
                 {% else %}
                 <div class="col-1">
-                    <a href="login" class="btn btn-success" role="button">Log In</a>
+                    <a href="login" class="btn btn-stanfordgreen" role="button">Log In</a>
                 </div>
                 {% endif %}
-                <div class="col-1">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
-                        aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
             </div>
         </div>
     </header>
     {% block content %}{% endblock %}
-
+    </div>
 </body>
 
+<footer class="textarea">
+    <div class="container marketing" style="margin-bottom: 50px;">
+        <hr class="featurette-divider">
+        <div class="row justify-content-md-center">
+            <h2 class="featurette-heading">Tech Stack</h2>
+            <div class="col-md-8">
+                <img src="{% static 'img/tech_stack.png' %}" class="d-block mx-auto">
+            </div>
+        </div>
+    </div>
+    <div class="container marketing" style="margin-bottom: 50px;">
+        <hr class="featurette-divider">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="featurette-heading">About This Project</h2>
+                <p class="lead font-weight-normal">The AI-driven Neurodiversity Job Matcher seeks to compare job descriptions with O*NET,
+                    a national database of occupational information, and use cross-comparison methods to extract
+                    competency match percentages between a job's required and preferred qualifications and the
+                    candidate's experience. CareerOneStop's Competency Model from the U.S. Department of Labor,
+                    Employment and Training Administration is used as a basis for classification and/or keyword
+                    extraction.
+                    <br/><br/>
+                    Through an integration with a database of job descriptions and resumes from Google Cloud's NLU
+                    platform, this project uses entity resolution to determine match percentages between job
+                    descriptions
+                    and candidates. Entity resolution allows the job matching engine to recognize when a candidate’s
+                    work
+                    experience and a job requirement were referring to the same real-world entities.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img src="{% static 'img/about_us.png' %}" width="550" height="550" class="d-block mx-auto">
+            </div>
+        </div>
+    </div>
+    <div class="container marketing">
+        <hr class="featurette-divider">
+        <div class="row">
+            <div class="col-md">
+                <h2 class="featurette-heading">About The Team</h2>
+                <p class="lead font-weight-normal">Isabella He (ihe@stanford.edu) is a senior at Mission San Jose High School in Fremont,
+                    CA, and is the developer
+                    of the AI-driven Neurodiversity Job Matcher. She initiated the project with Dr. Fung to automate the
+                    job
+                    matching process of Neurodiversity at Work. Additionally, within the Stanford Neurodiversity Project
+                    (SNP),
+                    she serves as the chair of the Network for K-12 Neurodiversity Education and Advocacy (NNEA),
+                    coordinator
+                    for SNP's neurodiversity camp for high schoolers — SNP REACH — and the Stanford Neurodiversity
+                    Summit.
+                    Outside of neurodiversity advocacy, she is a wrestler, pianist, and an editor for her school
+                    journalism team.
+                    <br/><br/>
+                    Lawrence Fung, M.D., Ph.D. (lkfung@stanford.edu) is the Director of the Stanford Neurodiversity
+                    Project. Dr. Fung specializes
+                    in the phenomenology, neurobiology and novel interventions of autism spectrum condition. He serves
+                    as
+                    Director of the Adult Neurodevelopment Clinic, and Assistant Professor (Medical Center Line) in the
+                    Department of Psychiatry & Behavioral Sciences. He is also the father of a teenager on the spectrum.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
 </html>
