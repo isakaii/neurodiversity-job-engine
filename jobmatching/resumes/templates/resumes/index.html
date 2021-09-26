@@ -10,11 +10,7 @@
         trial. The Natural Language Processing (NLU) based matching algorithm aims to generate optimal matches
         for all job seekers and positions to maximize the potential of neurodiverse individuals by matching
         them with job positions based on their overall strengths and experiences.</p>
-      {% if user.is_authenticated %}
-      <a href="resumes/upload" class="btn btn-success btn-lg btn-block">Get Started</a>
-      {% else %}
-      <a href="login" class="btn btn-success btn-lg btn-block">Get Started</a>
-      {% endif %}
+        <a href="resumes/upload" class="btn btn-success btn-lg btn-block">Get Started</a>
     </div>
     <div class="product-device shadow-sm d-none d-md-block"></div>
     <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
@@ -35,15 +31,9 @@
           percentages with your ideal jobs.</p>
       </div>
       <div class="col-md-5">
-        {% if user.is_authenticated %}
         <a href="resumes/upload">
           <img src="{% static 'img/resume_upload.png' %}" width="300" height="300" class="d-block mx-auto">
         </a>
-        {% else %}
-        <a href="login">
-          <img src="{% static 'img/resume_upload.png' %}" width="300" height="300" class="d-block mx-auto">
-        </a>
-        {% endif %}
       </div>
     </div>
   </div>

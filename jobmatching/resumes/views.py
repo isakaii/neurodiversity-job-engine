@@ -1,6 +1,7 @@
 import io
 
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -33,19 +34,27 @@ FIELDS_OF_WORK = [
 def index(request):
     return render(request, 'resumes/index.html')
 
-@login_required
 def upload(request):
     if request.method == 'POST':
-        insert_resume(request.POST, request.user)
-        messages.info(request, 'Resume uploaded')
+        if request.user.is_authenticated:
+            insert_resume(request.POST, request.user)
+            messages.info(request, 'Resume uploaded')
+        else:
+            return redirect("login")
     return render(request, 'resumes/upload.html', {'fields_of_work': FIELDS_OF_WORK})
 
 def insert_resume(request, user):
+    resume = Resume(
+        name = request["name"], 
+        headline = request["headline"], 
+        summary = request["summary"],
+        location = request["location"],
+        links = request["links"],
+        recentFieldOfWork  = request["recentFieldOfWorkOther"],
+        fieldsToExplore = request["fieldsOfWorkToExploreOther"],
+        uploader = user)
+    resume.save()
     print(request)
-
-# def handle_pdf_upload(file, user):
-#     resume = Resume(name = file.name, content = convert_pdf_to_string(file), uploader = user)
-#     resume.save()
 
 def convert_pdf_to_string(file):
     output_string = io.StringIO()
